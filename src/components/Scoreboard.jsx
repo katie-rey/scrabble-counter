@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 function Scoreboard(props) {
-  const [list, setList] = useState({})
+  const [score, setScore] = useState({})
 
-  let score = [12, 24, 30, 40, 50, 60, 70, 80]
+  let scoreArray = [12, 24, 30, 40, 50, 60, 70, 80]
 
   return (
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -11,7 +11,7 @@ function Scoreboard(props) {
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="py-3 px-6">
-              Players Turn
+              Turn
             </th>
             <th scope="col" class="py-3 px-6">
               Color
@@ -26,7 +26,7 @@ function Scoreboard(props) {
           </tr>
         </thead>
         <tbody>
-          {score?.map((item, index) => {
+          {scoreArray?.map((item, index) => {
             return (
               <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                 <th
