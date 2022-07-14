@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addPlayers } from '../actions/index'
+// import { addPlayers } from '../actions/index'
+import { addPlayers } from '../features/counter/playersSlice'
 
 function PlayerForm() {
   // const [playerOne, setPlayerOne] = useState('')
   // const [playerTwo, setPlayerTwo] = useState('')
   const [players, setPlayers] = useState('')
+  const playersState = useSelector((state) => state.players)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -25,6 +27,8 @@ function PlayerForm() {
     dispatch(addPlayers(players))
     e.target.reset()
   }
+
+ console.log(playersState)
 
   return (
     <div className="player-container">

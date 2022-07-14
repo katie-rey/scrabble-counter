@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+
 import '../App.css'
 import 'flowbite'
 
 function Form() {
-  const playersState = useSelector((state) => state.players)
+ 
 
   const dispatch = useDispatch()
 
   useEffect(() => {
     // dispatch(listRequested())
     // setIsLoading(false)
-  }, playersState)
+  }, [])
 
-  console.log(playersState)
+  
   function handleDelete(event, item) {
     event.preventDefault()
     // dispatch(deleteItem(item))
