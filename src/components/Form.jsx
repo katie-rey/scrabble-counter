@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import '../App.css'
 import 'flowbite'
 
-function Form() {
- 
+function Form(props) {
+  const playersState = useSelector((state) => state.players)
 
   const dispatch = useDispatch()
 
@@ -14,7 +14,6 @@ function Form() {
     // setIsLoading(false)
   }, [])
 
-  
   function handleDelete(event, item) {
     event.preventDefault()
     // dispatch(deleteItem(item))
@@ -26,6 +25,8 @@ function Form() {
     // dispatch(addToList(item))
   }
 
+  console.log(playersState.players)
+
   return (
     <div className="form-container">
       <div className="counter-container">
@@ -35,7 +36,7 @@ function Form() {
               for="email"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
-              Score 1
+              {props.playersSate}
             </label>
             <input
               type="email"

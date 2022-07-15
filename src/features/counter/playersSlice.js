@@ -12,7 +12,7 @@ export const playersSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
       console.log(action.payload)
-      state += action.payload
+      state = action.payload
       console.log(state)
     },
   },

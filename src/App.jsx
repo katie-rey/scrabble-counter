@@ -15,7 +15,7 @@ function App() {
       <div className="wrapper">
         <Header />
         <PlayerForm />
-        <Form />
+        {/* <Form /> */}
         <Scoreboard />
       </div>
     </>
