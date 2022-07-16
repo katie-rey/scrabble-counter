@@ -6,10 +6,12 @@ import '../App.css'
 import 'flowbite'
 
 function Form() {
-  const [score, setScore] = useState({
-    scoreOne: 0,
-    scoreTwo: 0,
-  })
+  const [score, setScore] = useState([
+    // {
+    //   scoreOne: 0,
+    //   scoreTwo: 0,
+    // },
+  ])
 
   const scoreState = useSelector((state) => state.score)
 

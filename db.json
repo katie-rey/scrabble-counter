@@ -1,0 +1,19 @@
+{
+  "score": [
+    {
+      "id": 1,
+      "playerOne": 11,
+      "playerTwo": 12
+    },
+    {
+      "id": 2,
+      "playerOne": 22,
+      "playerTwo": 23
+    },
+    {
+      "id": 3,
+      "playerOne": 34,
+      "playerTwo": 35
+    }
+  ]
+}

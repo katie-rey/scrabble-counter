@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { APIgetScore } from '../apis/score'
 
 function Scoreboard(props) {
-  const [score, setScore] = useState({})
+  const [score, setScore] = useState([])
 
   const playersState = useSelector((state) => state.players)
   const scoreState = useSelector((state) => state.score)
 
   const dispatch = useDispatch()
-  useEffect(() => {}, [])
+
+  useEffect(() => {
+    // APIgetScore().then((res) => {
+    //   console.log(res)
+    //   setScore(res)
+   // })
+  }, [])
 
   let scoreArray = [12, 24, 30, 40, 50, 60, 70, 80]
 
-  console.log(scoreState)
+  // console.log(score)
+
+  // console.log(scoreAPI)
+
+  // console.log(scoreState)
 
   return (
     <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -39,15 +50,12 @@ function Scoreboard(props) {
             return (
               <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                 <th
-                  key="playerOneIndex"
                   scope="row"
                   className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
                   {index + 1}
                 </th>
-                <td key="playerOneScore" className="py-4 px-6">
-                  {item}
-                </td>
+                <td className="py-4 px-6">{item}</td>
                 <td className="py-4 px-6">12</td>
 
                 <td className="py-4 px-6 text-right">
