@@ -27,13 +27,15 @@ function Form() {
 
 
   function handleChange(e) {
-    setScore([
-      {
-      ...score},  {
+    setScore({
+      
+      ...score,  
+      
       [e.target.name]: e.target.value 
-      }
-    ]
+    
+    }
     )
+    console.log(score)
   }
 
   console.log(score)
@@ -48,13 +50,14 @@ function Form() {
     e.target.reset()
   }
 
-  console.log(scoreState)  
+  // console.log(scoreState)  
 
-  const addScoreList = text => {
-    const newScore = [...score, { text }]
+  function addScoreList(text) {
+    const newScore = [{...score}, { text }]
     console.log(newScore)
     setScore(newScore)
   }
+
 
   console.log(score)  
   
