@@ -2,10 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = [
   {
-    score: {
-      scoreOne: 0,
-      scoreTwo: 0,
-    },
+    // scoreOne: 0,
+    // scoreTwo: 0,
   },
 ]
 

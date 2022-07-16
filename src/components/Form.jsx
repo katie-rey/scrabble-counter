@@ -8,10 +8,11 @@ import 'flowbite'
 function Form() {
   const [score, setScore] = useState([
     // {
-    //   scoreOne: 0,
-    //   scoreTwo: 0,
-    // },
+    //   scoreOne: null,
+    //   scoreTwo: null,
+    // }
   ])
+    const [totalScore, setTotalScore] = useState([])
 
   const scoreState = useSelector((state) => state.score)
 
@@ -19,22 +20,44 @@ function Form() {
 
   useEffect(() => {}, [])
 
+  // const addScore = text => {
+  //   const newTodos = [...todos, { text }];
+  //   setTodos(newTodos);
+  // };
+
+
   function handleChange(e) {
-    setScore({
-      ...score,
-      [e.target.name]: e.target.value,
-    })
+    setScore([
+      {
+      ...score},  {
+      [e.target.name]: e.target.value 
+      }
+    ]
+    )
   }
+
+  console.log(score)
 
   function handleSubmit(e) {
     e.preventDefault()
-    dispatch(addScore(score))
+    // dispatch(addScore(score))
+    addScoreList(score)
 
     console.log(score)
 
     e.target.reset()
   }
 
+  console.log(scoreState)  
+
+  const addScoreList = text => {
+    const newScore = [...score, { text }]
+    console.log(newScore)
+    setScore(newScore)
+  }
+
+  console.log(score)  
+  
   // console.log(playersState.players.playerOne)
   // console.log(playersState.players.playerTwo)
 
@@ -54,6 +77,7 @@ function Form() {
                 type="text"
                 id="playerOne-score"
                 name="scoreOne"
+                value={score.scoreOne}
                 onChange={(e) => handleChange(e)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="score"
@@ -63,13 +87,14 @@ function Form() {
               <label
                 // for="email"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
+                >
                 P2 Score
               </label>
               <input
                 type="text"
                 id="playerTwo-score"
                 name="scoreTwo"
+                value={score.scoreTwo}
                 onChange={(e) => handleChange(e)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="score"
