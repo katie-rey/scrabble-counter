@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addPlayerOne } from '../features/counter/scoreSlice'
-
+import { addScore } from '../features/counter/scoreSlice'
 import data from '../data.json'
 
 import '../App.css'
@@ -10,14 +9,13 @@ import Scoreboard from './Scoreboard'
 
 function Form() {
   const [userInput, setUserInput] = useState()
-  const [playerOneList, setPlayerOneList] = useState([12, 22])
-  const playerOneListState = useSelector((state) => state.score)
-  const dispatch = useDispatch()
   // const [scoreList, setScoreList] = useState(data)
   // const [totalScore, setTotalScore] = useState(data)
+  // const scoreState = useSelector((state) => state.score)
+  // const dispatch = useDispatch()
+  const [toDoList, setToDoList] = useState([12, 22])
 
   console.log(userInput)
-  console.log(playerOneListState)
 
   useEffect(() => {}, [])
 
@@ -36,11 +34,10 @@ function Form() {
   // newTotalScore.push(score)
 
   function handleSubmit(e) {
-    // add form validation error message
     e.preventDefault()
     addScore(userInput)
-
-    setUserInput('')
+    // setUserInput('')
+    // dispatch(addScore(score))
     // addScoreList(score)
     // setTotalScore(score)
     // console.log(totalScore)
@@ -53,18 +50,13 @@ function Form() {
 
   function addScore(userInput) {
     console.log(userInput)
-    console.log(playerOneList)
-    let copy = [...playerOneList]
+    console.log(toDoList)
+    let copy = [...toDoList]
     console.log(copy)
     copy.push(userInput)
-    console.log(copy)
-    setPlayerOneList(copy)
-    console.log(playerOneList)
-    dispatch(addPlayerOne(playerOneList))
+    setToDoList(copy)
+    console.log(toDoList)
   }
-
-  useEffect(() => {}, [playerOneList])
-
   // console.log(newTotalScore)
   // console.log(scoreState)
 
@@ -83,8 +75,7 @@ function Form() {
   // console.log(playersState.players.playerOne)
   // console.log(playersState.players.playerTwo)
 
-  console.log(playerOneList)
-  console.log(playerOneListState)
+  console.log(toDoList)
 
   return (
     <div className="form-container">
@@ -117,7 +108,7 @@ function Form() {
           Submit
         </button>
       </form>
-      <Scoreboard />
+      {/* <Scoreboard /> */}
     </div>
   )
 }

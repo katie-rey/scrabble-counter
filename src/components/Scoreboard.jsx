@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { APIgetScore } from '../apis/score'
 
-function Scoreboard(props) {
-  const [score, setScore] = useState([])
+function Scoreboard({ toDoList }) {
+  // const [score, setScore] = useState([])
 
   const playersState = useSelector((state) => state.players)
-  const scoreState = useSelector((state) => state.score)
+  const playerOneListState = useSelector((state) => state.score)
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   useEffect(() => {
     // APIgetScore().then((res) => {
     //   console.log(res)
     //   setScore(res)
-   // })
+    // })
   }, [])
 
   let scoreArray = [12, 24, 30, 40, 50, 60, 70, 80]
@@ -23,7 +23,7 @@ function Scoreboard(props) {
 
   // console.log(scoreAPI)
 
-  // console.log(scoreState)
+  console.log(playerOneListState)
 
   return (
     <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -55,7 +55,7 @@ function Scoreboard(props) {
                 >
                   {index + 1}
                 </th>
-                <td className="py-4 px-6">{item}</td>
+                <td className="py-4 px-6">12</td>
                 <td className="py-4 px-6">12</td>
 
                 <td className="py-4 px-6 text-right">
