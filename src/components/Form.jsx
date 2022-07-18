@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addPlayerOne } from '../features/counter/scoreSlice'
+import { addScores } from '../features/counter/scoreSlice'
 
 import data from '../data.json'
 
@@ -8,22 +8,43 @@ import '../App.css'
 import 'flowbite'
 import Scoreboard from './Scoreboard'
 
+const initialValues = {
+  playerOne: '',
+  playerTwo: '',
+}
+
 function Form() {
-  const [userInput, setUserInput] = useState()
-  const [playerOneList, setPlayerOneList] = useState([12, 22])
-  const playerOneListState = useSelector((state) => state.score)
+  const [values, setValues] = useState(initialValues)
+  const [valuesList, setValuesList] = useState([])
+
+  // const [userInput, setUserInput] = useState()
+  // const [playerOneList, setPlayerOneList] = useState([12, 22])
+  // const scoreState = useSelector((state) => state.score)
   const dispatch = useDispatch()
+
   // const [scoreList, setScoreList] = useState(data)
   // const [totalScore, setTotalScore] = useState(data)
 
-  console.log(userInput)
-  console.log(playerOneListState)
+  // console.log(userInput)
+  // console.log(playerOneListState)
 
-  useEffect(() => {}, [])
+  //   useEffect(() => {}, [])
 
-  function handleChange(e) {
-    setUserInput(e.target.value)
+  //   function handleChange(e) {
+  //    [ {...userInput}
+  //    setUserInput(e.target.value)
+  // ]  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    setValues({
+      ...values,
+      [name]: value,
+    })
   }
+
+  console.log(values)
 
   // console.log(scoreList)
 
@@ -35,12 +56,22 @@ function Form() {
   // const newTotalScore = []
   // newTotalScore.push(score)
 
+  // const totalScore = []
+  // let copy = { ...values }
+  // totalScore.push(copy)
+  // console.log(totalScore)
+  // setValues(initialValues)
+
   function handleSubmit(e) {
     // add form validation error message
     e.preventDefault()
-    addScore(userInput)
+    // setValuesList([values])
+    // console.log(valuesList)
+    addScore(values)
+    // addScores(values)
+    // addScore(userInput)
 
-    setUserInput('')
+    // setUserInput('')
     // addScoreList(score)
     // setTotalScore(score)
     // console.log(totalScore)
@@ -51,19 +82,23 @@ function Form() {
     // console.log(newTotalScore)
   }
 
-  function addScore(userInput) {
-    console.log(userInput)
-    console.log(playerOneList)
-    let copy = [...playerOneList]
+  function addScore(values) {
+    let copy = [...valuesList]
+    copy = [...copy, { values }]
+    setValuesList(copy)
     console.log(copy)
-    copy.push(userInput)
-    console.log(copy)
-    setPlayerOneList(copy)
-    console.log(playerOneList)
-    dispatch(addPlayerOne(playerOneList))
+    setValues(initialValues)
+    console.log(valuesList)
+    dispatch(addScores(copy))
+
+    // copy.push(userInput)
+    // console.log(copy)
+    // setPlayerOneList(copy)
+    // console.log(playerOneList)
+    // dispatch(addPlayerOne(playerOneList))
   }
 
-  useEffect(() => {}, [playerOneList])
+  // useEffect(() => {}, [playerOneList])
 
   // console.log(newTotalScore)
   // console.log(scoreState)
@@ -83,8 +118,8 @@ function Form() {
   // console.log(playersState.players.playerOne)
   // console.log(playersState.players.playerTwo)
 
-  console.log(playerOneList)
-  console.log(playerOneListState)
+  // console.log(playerOneList)
+  // console.log(playerOneListState)
 
   return (
     <div className="form-container">
@@ -101,8 +136,25 @@ function Form() {
               <input
                 type="text"
                 id="playerOne-score"
-                name="scoreOne"
-                // value={score}
+                name="playerOne"
+                value={values.playerOne}
+                onChange={(e) => handleChange(e)}
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="score"
+              ></input>
+            </div>
+            <div className="mb-6">
+              <label
+                // for="email"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                P1 Score
+              </label>
+              <input
+                type="text"
+                id="playerOne-score"
+                name="playerTwo"
+                value={values.playerTwo}
                 onChange={(e) => handleChange(e)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="score"
@@ -117,7 +169,7 @@ function Form() {
           Submit
         </button>
       </form>
-      <Scoreboard />
+      {/* <Scoreboard /> */}
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import { toHaveFormValues } from '@testing-library/jest-dom/dist/matchers'
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { APIgetScore } from '../apis/score'
@@ -6,7 +7,7 @@ function Scoreboard({ toDoList }) {
   // const [score, setScore] = useState([])
 
   const playersState = useSelector((state) => state.players)
-  const playerOneListState = useSelector((state) => state.score)
+  const scoreState = useSelector((state) => state.score)
 
   // const dispatch = useDispatch()
 
@@ -17,13 +18,12 @@ function Scoreboard({ toDoList }) {
     // })
   }, [])
 
-  let scoreArray = [12, 24, 30, 40, 50, 60, 70, 80]
-
   // console.log(score)
 
   // console.log(scoreAPI)
 
-  console.log(playerOneListState)
+  console.log(scoreState.score)
+  const scoreArray = scoreState.score
 
   return (
     <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -55,8 +55,8 @@ function Scoreboard({ toDoList }) {
                 >
                   {index + 1}
                 </th>
-                <td className="py-4 px-6">12</td>
-                <td className="py-4 px-6">12</td>
+                <td className="py-4 px-6">{item.values.playerOne}</td>
+                <td className="py-4 px-6">{item.values.playerTwo}</td>
 
                 <td className="py-4 px-6 text-right">
                   <a
@@ -77,22 +77,6 @@ function Scoreboard({ toDoList }) {
 
 export default Scoreboard
 
-// <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-// <th
-//   scope="row"
-//   class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-// >
-//   2
-// </th>
-// <td class="py-4 px-6">White</td>
-// <td class="py-4 px-6">Laptop PC</td>
-
-// <td class="py-4 px-6 text-right">
-//   <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-//     Edit
-//   </a>
-// </td>
-// </tr>
 // <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
 // <th
 //   scope="row"
