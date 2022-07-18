@@ -9,13 +9,10 @@ import Header from './components/Header'
 function App() {
   return (
     <>
-      {/* <Routes>
-      <Route exact path="/list" element={<Header />} />
-      </Routes> */}
       <div className="wrapper">
         <Header />
         <PlayerForm />
-        {/* <Form /> */}
+        <Form />
         <Scoreboard />
       </div>
     </>
@@ -23,6 +20,3 @@ function App() {
 }
 
 export default App
-
-// add routes to redirect
-//add navigate from react router dom

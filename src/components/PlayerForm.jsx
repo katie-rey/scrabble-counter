@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-// import { addPlayers } from '../actions/index'
+
 import { addPlayers } from '../features/counter/playersSlice'
 import Form from './Form'
 
 function PlayerForm() {
-  // const [playerOne, setPlayerOne] = useState('')
-  // const [playerTwo, setPlayerTwo] = useState('')
   const [players, setPlayers] = useState({
     playerOne: '',
     playerTwo: '',
@@ -39,10 +37,7 @@ function PlayerForm() {
         <form className="ml-40 mt-10" onSubmit={handleSubmit}>
           <div className="grid gap-6 mb-6 md:grid-cols-3">
             <div>
-              <label
-                // for="email"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
+              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Player One
               </label>
               <input
@@ -83,8 +78,7 @@ function PlayerForm() {
           </div>
         </form>
       </div>
-      <Form state={players} />
-      {/* {console.log(players)} */}
+     
     </>
   )
 }

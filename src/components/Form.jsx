@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { addScores } from '../features/counter/scoreSlice'
 
-import data from '../data.json'
-
 import '../App.css'
 import 'flowbite'
 import Scoreboard from './Scoreboard'
@@ -17,23 +15,7 @@ function Form() {
   const [values, setValues] = useState(initialValues)
   const [valuesList, setValuesList] = useState([])
 
-  // const [userInput, setUserInput] = useState()
-  // const [playerOneList, setPlayerOneList] = useState([12, 22])
-  // const scoreState = useSelector((state) => state.score)
   const dispatch = useDispatch()
-
-  // const [scoreList, setScoreList] = useState(data)
-  // const [totalScore, setTotalScore] = useState(data)
-
-  // console.log(userInput)
-  // console.log(playerOneListState)
-
-  //   useEffect(() => {}, [])
-
-  //   function handleChange(e) {
-  //    [ {...userInput}
-  //    setUserInput(e.target.value)
-  // ]  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -44,42 +26,13 @@ function Form() {
     })
   }
 
-  console.log(values)
-
-  // console.log(scoreList)
-
-  // const addScore = text => {
-  //   const newTodos = [...todos, { text }];
-  //   setTodos(newTodos);
-  // };
-
-  // const newTotalScore = []
-  // newTotalScore.push(score)
-
-  // const totalScore = []
-  // let copy = { ...values }
-  // totalScore.push(copy)
-  // console.log(totalScore)
-  // setValues(initialValues)
-
   function handleSubmit(e) {
     // add form validation error message
     e.preventDefault()
-    // setValuesList([values])
-    // console.log(valuesList)
+
     addScore(values)
-    // addScores(values)
-    // addScore(userInput)
 
-    // setUserInput('')
-    // addScoreList(score)
-    // setTotalScore(score)
-    // console.log(totalScore)
-
-    // const newScore = score
-    // newTotalScore.push(newScore)
     e.target.reset()
-    // console.log(newTotalScore)
   }
 
   function addScore(values) {
@@ -90,36 +43,7 @@ function Form() {
     setValues(initialValues)
     console.log(valuesList)
     dispatch(addScores(copy))
-
-    // copy.push(userInput)
-    // console.log(copy)
-    // setPlayerOneList(copy)
-    // console.log(playerOneList)
-    // dispatch(addPlayerOne(playerOneList))
   }
-
-  // useEffect(() => {}, [playerOneList])
-
-  // console.log(newTotalScore)
-  // console.log(scoreState)
-
-  // const totalPlayerOne = .concat(totalScore)
-
-  // console.log(totalPlayerOne)
-
-  // function addScoreList(text) {
-  //   const playerOneScore = []
-  //   play
-  //   setScore(newScore)
-  // }
-
-  // console.log(score)
-
-  // console.log(playersState.players.playerOne)
-  // console.log(playersState.players.playerTwo)
-
-  // console.log(playerOneList)
-  // console.log(playerOneListState)
 
   return (
     <div className="form-container">
@@ -128,10 +52,7 @@ function Form() {
           <div className="score-container">
             <div className="grid gap-6 mb-6 md:grid-cols-3">
               <div>
-                <label
-                  // for="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                   P1 Score
                 </label>
                 <input
@@ -145,10 +66,7 @@ function Form() {
                 ></input>
               </div>
               <div>
-                <label
-                  // for="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                   P1 Score
                 </label>
                 <input
@@ -173,7 +91,6 @@ function Form() {
           </div>
         </div>
       </form>
-      {/* <Scoreboard /> */}
     </div>
   )
 }
