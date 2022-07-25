@@ -47,7 +47,7 @@ function Form() {
 
   return (
     <div className="form-container">
-      <form className="ml-40" onSubmit={handleSubmit}>
+      <form className="ml" onSubmit={handleSubmit}>
         <div className="counter-container">
           <div className="score-container">
             <div className="grid gap-6 mb-6 md:grid-cols-3">
