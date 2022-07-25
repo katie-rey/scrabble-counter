@@ -58,12 +58,12 @@ function Scoreboard({ toDoList }) {
                   <td className="py-4 px-6">{item.values.playerTwo}</td>
 
                   <td className="py-4 px-6 text-right">
-                    <a
+                    {/* <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       Edit
-                    </a>
+                    </a> */}
                   </td>
                 </tr>
               )
