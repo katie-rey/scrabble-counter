@@ -21,7 +21,7 @@ This repo includes:
 * Redux Toolkit
 * Flowbite (Tailwind CSS library)
 
-Live site: [Here] (https://snazzy-queijadas-5198a0.netlify.app/#)
+Live site: [Here](https://snazzy-queijadas-5198a0.netlify.app/#)
 
 
 
