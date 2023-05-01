@@ -20,7 +20,7 @@ This repo includes:
 * A React app
 * Redux Toolkit
 * Flowbite (Tailwind CSS library)
-*
+
 
 
 
